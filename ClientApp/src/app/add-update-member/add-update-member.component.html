@@ -1,0 +1,46 @@
+<div class="modal"
+     tabindex="-1"
+     role="dialog"
+     [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{isUpdate ? 'Update' :  'Add'}} Member Details</h4>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]='memberForm'>
+          <div class="form-group">
+            <label class="col-md-4">First Name</label>
+            <input type="text" formControlName='firstName' class="form-control" [ngClass]="{'error-border': memberForm.get('firstName')?.invalid}">
+          </div>
+          <div class="form-group mt-3">
+            <label class="col-md-4">Last Name</label>
+            <input type="text" formControlName='lastName' class="form-control" [ngClass]="{'error-border': memberForm.get('lastName')?.invalid}"/>
+          </div>
+
+          <div class="form-group mt-3">
+            <label class="col-md-4">Phone Number</label>
+            <input type="text" formControlName='phone' class="form-control" [ngClass]="{'error-border': memberForm.get('phone')?.invalid}"/>
+          </div>
+
+          <div class="form-group mt-3">
+            <label class="col-md-4">Email</label>
+            <input type="text" formControlName='email' class="form-control" [ngClass]="{'error-border': memberForm.get('email')?.invalid}"/>
+          </div>
+
+          <div class="form-group mt-3">
+            <label class="col-md-4">Address</label>
+            <textarea cols="60" rows="5" class="form-control" formControlName="address"></textarea>
+          </div>
+
+          <div class="form-group text-center mt-3">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" [disabled]='!memberForm.valid' (click)="addOrUpdateDetails()">{{isUpdate ? 'Update' :  'Add'}} Member</button>
+        <button type="button" class="btn btn-danger" (click)="closePopup()"> Close </button>
+      </div>
+    </div>
+  </div>
+</div>

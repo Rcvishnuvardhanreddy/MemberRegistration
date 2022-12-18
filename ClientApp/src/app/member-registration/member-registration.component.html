@@ -1,0 +1,13 @@
+<div style="padding-top: 100px;" class="col-11 margin-auto">
+  <h1>Member Registration</h1>
+
+  <button class="btn btn-primary mt-3" (click)="addNewRegistration()">Add new Registration</button>
+
+  <app-add-update-member *ngIf="canAddRegistration" [memberData]="selectedMemberData" (onMemberDataUpdated)="onUpdateMemberDetails($event)"></app-add-update-member>
+
+  <div class="alert alert-success mt-4" role="alert" *ngIf="previosulyAddedMemberData">
+    Successfully registered
+    <span class="fw-bold">{{previosulyAddedMemberData.firstName + ' ' + previosulyAddedMemberData.lastName}} </span>
+    with Registration id : <span class="fw-bold"> {{previosulyAddedMemberData.id}}</span>
+</div>
+</div>
